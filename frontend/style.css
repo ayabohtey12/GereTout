@@ -1,0 +1,252 @@
+/* =================================
+   Général & Mise en page
+   ================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    padding: 15px;
+    color: #212529;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.title {
+    text-align: center;
+    color: white;
+    margin-bottom: 25px;
+    font-size: 2.5rem;
+}
+
+/* =================================
+   Matrice d'Eisenhower
+   ================================= */
+.matrix {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.quadrant {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border-radius: 16px;
+    padding: 20px;
+    padding-top: 50px; /* Espace pour les labels en haut */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    position: relative;
+    border-top: 8px solid; /* La bordure colorée distinctive */
+}
+
+/* Couleurs des bordures pour chaque quadrant */
+.urgent-important { border-top-color: #E03131; }
+.not-urgent-important { border-top-color: #1C7ED6; }
+.urgent-not-important { border-top-color: #FFA94D; }
+.not-urgent-not-important { border-top-color: #CED4DA; }
+
+/* =================================
+   Contenu des Quadrants
+   ================================= */
+.quadrant h2 {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.quadrant h3 {
+    font-size: 0.95rem;
+    color: #6c757d;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+/* Labels "Urgent", "Important", etc. */
+.label-horizontal, .label-vertical {
+    position: absolute;
+    top: 18px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    padding: 4px 10px;
+    border-radius: 20px;
+    color: #fff;
+}
+.label-horizontal { 
+    left: 20px;
+    background: #E03131; /* Rouge pour "Urgent" */
+}
+.quadrant.not-urgent-important .label-horizontal,
+.quadrant.not-urgent-not-important .label-horizontal {
+    background: #1C7ED6; /* Bleu pour "Non Urgent" */
+}
+.label-vertical {
+    right: 20px;
+    background: #37B24D; /* Vert pour "Important" */
+}
+.quadrant.urgent-not-important .label-vertical,
+.quadrant.not-urgent-not-important .label-vertical {
+    background: #adb5bd; /* Gris pour "Non Important" */
+}
+
+/* =================================
+   Zone et Items de Tâches
+   ================================= */
+.tasks {
+    flex: 1; /* Permet à cette zone de prendre tout l'espace vertical */
+    overflow-y: auto; /* Ajoute un scroll si nécessaire */
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 10px;
+    min-height: 100px; /* Hauteur minimale */
+}
+
+.task-item {
+    background: white;
+    padding: 12px;
+    margin-bottom: 8px;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-left: 5px solid #667eea; /* Couleur par défaut */
+}
+.task-item.completed {
+    opacity: 0.7;
+    text-decoration: line-through;
+    border-left-color: #37B24D; /* Vert pour les tâches terminées */
+}
+
+.task-actions button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    padding: 5px;
+    transition: filter 0.2s; /* Effet de transition doux */
+}
+.task-actions button:hover { 
+    filter: brightness(0.7); /* Assombrit l'icône au survol */
+}
+
+/* Couleurs spécifiques pour chaque icône */
+.task-actions .complete-btn { color: #37B24D; } /* Vert Succès */
+.task-actions .edit-btn { color: #228BE6; }     /* Bleu Info */
+.task-actions .delete-btn { color: #E03131; }   /* Rouge Alerte */
+
+/* =================================
+   Boutons
+   ================================= */
+.add-task-btn {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    margin-top: 15px; /* Espace au-dessus du bouton */
+}
+
+/* =================================
+   Modal (fenêtre d'ajout/modif)
+   ================================= */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.4);
+}
+.modal-content {
+    background-color: white;
+    margin: 10% auto;
+    padding: 25px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+.modal-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+/* Style des boutons du modal */
+.modal-buttons button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+.save-btn {
+    background-color: #5F3DC4; /* Indigo */
+    color: white;
+}
+.save-btn:hover {
+    background-color: #4d31a1; /* Indigo plus foncé */
+}
+
+.cancel-btn {
+    background-color: #e9ecef; /* Gris clair */
+    color: #495057;
+}
+.cancel-btn:hover {
+    background-color: #dee2e6; /* Gris moyen */
+}
+
+.form-group { margin-bottom: 15px; }
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+.form-group input, .form-group textarea, .form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+}
+.form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+}
+
+/* =================================
+   Responsive
+   ================================= */
+@media (max-width: 800px) {
+    body {
+        padding: 10px;
+    }
+    .matrix {
+        grid-template-columns: 1fr; /* Une seule colonne sur mobile */
+        gap: 15px;
+    }
+    .title {
+        font-size: 2rem;
+    }
+    .quadrant {
+        padding: 15px;
+        padding-top: 45px;
+    }
+    .label-horizontal, .label-vertical {
+        top: 15px;
+    }
+    .label-horizontal { left: 15px; }
+    .label-vertical { right: 15px; }
+}
+
