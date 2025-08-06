@@ -20,7 +20,7 @@ GèreTout est une application web de gestion des tâches inspirée de la matrice
          ![Aperçu de l’application](./Pas-Important&&Urgent.png)  
 ✅ Modifier et supprimer des tâches
      **📸 Aperçu
-         ![Aperçu de l’application](./interface-du-projet.png)
+         ![Aperçu de l’application](./Ajouter-une-nouvelle-tache.png)
 ✅ Interface claire et responsive
      **📸 Aperçu
          ![Aperçu de l’application](./iInterface-GereTout.png)
