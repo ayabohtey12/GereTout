@@ -7,11 +7,23 @@ GèreTout est une application web de gestion des tâches inspirée de la matrice
 ✅ Ajouter des tâches avec un titre, une description et une priorité  
 ✅ Classer les tâches dans les 4 quadrants de la matrice Eisenhower :  
 - Important et Urgent
+    **📸 Aperçu
+         ![Aperçu de l’application](./Important&&Pas-Urgent.png)
 - Important mais Pas Urgent
+    **📸 Aperçu
+         ![Aperçu de l’application](./Important&&Urgent.png)
 - Pas Important mais Urgent
-- Pas Important et Pas Urgent  
-✅ Modifier et supprimer des tâches  
+    **📸 Aperçu
+         ![Aperçu de l’application](./Pas-Important&&Pas-Urgent.png)
+- Pas Important et Pas Urgent
+    **📸 Aperçu
+         ![Aperçu de l’application](./Pas-Important&&Urgent.png)  
+✅ Modifier et supprimer des tâches
+     **📸 Aperçu
+         ![Aperçu de l’application](./interface-du-projet.png)
 ✅ Interface claire et responsive
+     **📸 Aperçu
+         ![Aperçu de l’application](./iInterface-GereTout.png)
 
 ## 🛠️ Technologies utilisées
 
